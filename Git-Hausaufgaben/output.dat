@@ -1,0 +1,12 @@
+package januebungen;
+
+//Standardtestbeispiel, vor allem fuer A4
+public class KommentarTest {
+	/*
+	int a; // Sinnlose Variable
+
+	public static void main(String[] args) {
+		int x = 0;
+		/*
+		int y = 1;
+}
