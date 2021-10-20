@@ -1,11 +1,24 @@
 package goldPreis;
 
+/**
+ * Klasse @Goldpreis. Erschafft eine ArrayListe, die Goldpreise an verschiedenen Tagen beinhaltet
+ * 
+ * @version 1.0.0
+ * @author Justin, Jonas, Jan
+ *
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Goldpreis {
+	/**
+	 * Attribute der Klasse @Goldpreis
+	 * 
+	 * @List Ist eine ArrayListe, die @Goldtagespreis enthaelt
+	 */
 	private ArrayList<Goldtagespreis> List = new ArrayList<>();
 
 	public Goldpreis(String dateiname) {
