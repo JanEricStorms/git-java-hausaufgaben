@@ -31,7 +31,6 @@ public class Goldtagespreis {
 	 */
 	public String toString() {
 		String erg = this.datum + "\t " + this.preis;
-
 		return erg;
 	}
 }

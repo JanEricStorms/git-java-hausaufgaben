@@ -5,7 +5,6 @@ public class Main {
 		
 		Goldpreis test = new Goldpreis("gold.txt");
 		
-		
 		System.out.println(test.getPreis("2009-10-20"));
 		System.out.println(test.getPreis("2009-02-07"));
 		test.printMinMax();

@@ -8,7 +8,6 @@ import java.util.Scanner;
  * 
  * @version 1.0.0
  * @author Justin, Jonas, Jan
- *
  */
 public class Goldpreis {
 	
