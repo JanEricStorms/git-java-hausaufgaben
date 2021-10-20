@@ -1,0 +1,13 @@
+package goldPreis;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Goldpreis test = new Goldpreis("gold.txt");
+		System.out.println(test.getPreis("2009-10-20"));
+		System.out.println(test.getPreis("2009-02-07"));
+		test.printMinMax();
+	}
+
+}
