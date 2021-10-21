@@ -1,3 +1,4 @@
+package goldPreis;
 
 public class Main {
 
