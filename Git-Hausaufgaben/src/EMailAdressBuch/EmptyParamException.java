@@ -1,4 +1,4 @@
-
+package EMailAdressBuch;
 public class EmptyParamException extends Exception {
 
 	public EmptyParamException(String message, Throwable cause) {
