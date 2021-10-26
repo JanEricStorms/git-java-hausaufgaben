@@ -1,3 +1,4 @@
+package goldPreis;
 /** 
  * Klasse Goldtagespreis: Zum Verwalten eines einzigen Goldpreises an einem Tag
  * 
