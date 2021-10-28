@@ -9,6 +9,7 @@ public class BenutzerFormat implements BruchFormat {
 
 	public BenutzerFormat(String format) {
 		this.format = format;
+		Locale.setDefault(Locale.GERMAN);
 	}
 
 	public BenutzerFormat(String format, Locale land) {
