@@ -225,4 +225,8 @@ public class Bruch {
 		this.bformat = bformat;
 	}
 
+	public BruchFormat getFormat() {
+		return this.bformat;
+	}
+
 } // class
