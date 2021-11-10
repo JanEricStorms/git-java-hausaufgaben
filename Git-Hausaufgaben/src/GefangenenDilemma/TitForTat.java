@@ -1,7 +1,13 @@
 package GefangenenDilemma;
+
 /**
  * Klasse TitForTat implementiert GefangenenStrategie <br>
- * Strategie: <br> Kooperiert in der ersten Runde und kopiert in den nächsten Runden den vorherigen Spielzug des Spielpartners. Diese Strategie ist prinzipiell kooperationswillig, übt aber bei Verrat Vergeltung. Bei erneuter Kooperation des Mitspielers ist sie nicht nachtragend, sondern reagiert ihrerseits mit Kooperation
+ * Strategie: <br>
+ * Kooperiert in der ersten Runde und kopiert in den naechsten Runden den
+ * vorherigen Spielzug des Spielpartners. Diese Strategie ist prinzipiell
+ * kooperationswillig, uebt aber bei Verrat Vergeltung. Bei erneuter Kooperation
+ * des Mitspielers ist sie nicht nachtragend, sondern reagiert ihrerseits mit
+ * Kooperation
  * 
  * @author Justin,Jonas,Jan
  * @version 1.0.0
@@ -13,7 +19,7 @@ public class TitForTat implements GefangenenStrategie {
 	private int counter = 0;
 
 	/**
-	 * Gibt die nächste Entscheidung des (this) Spieler zurück <br>
+	 * Gibt die naechste Entscheidung des (this) Spieler zurueck <br>
 	 * Format: true = Kooperation, false = Verrat
 	 * 
 	 * @return boolean > Entscheidung
@@ -32,11 +38,12 @@ public class TitForTat implements GefangenenStrategie {
 				return false;
 			}
 			return true;
-		} 
+		}
 	}
 
 	/**
 	 * Setzt die vorherige Entscheidung des Gegners mit dem angegebenen Parameter
+	 * 
 	 * @param decision > boolean
 	 */
 	public void setOpponentsLastDecision(boolean decision) {
