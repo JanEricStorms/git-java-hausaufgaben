@@ -1,11 +1,23 @@
 package GefangenenDilemma;
-
+/**
+ * Klasse Spite implementiert GefangenenStrategie <br>
+ * Strategie: <br>  Kooperiert solange, bis der Mitspieler zum ersten Mal verrät. Verrät danach immer. Kooperiert bis zum ersten Vertrauensmissbrauch
+ * 
+ * @author Justin,Jonas,Jan
+ * @version 1.0.0
+ *
+ */
 public class Spite implements GefangenenStrategie {
 
 	private boolean lastDecision;
 	private int counter = 0;
-
-	@Override
+	
+	/**
+	 * Gibt die nächste Entscheidung des (this) Spieler zurück <br>
+	 * Format: true = Kooperation, false = Verrat
+	 * 
+	 * @return boolean > Entscheidung
+	 */
 	public boolean getNextDecision() {
 
 		if (this.lastDecision == false) {
@@ -16,8 +28,10 @@ public class Spite implements GefangenenStrategie {
 		}
 		return false;
 	}
-
-	@Override
+	/**
+	 * Setzt die vorherige Entscheidung des Gegners mit dem angegebenen Parameter
+	 * @param decision > boolean
+	 */
 	public void setOpponentsLastDecision(boolean decision) {
 		this.lastDecision = decision;
 

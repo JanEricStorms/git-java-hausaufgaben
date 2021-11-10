@@ -1,17 +1,31 @@
 package GefangenenDilemma;
-
+/**
+ * Klasse Random implementiert GefangenenStrategie <br>
+ * Strategie: <br>  Verrät oder kooperiert aufgrund eines 50:50-Zufallsentscheids
+ * 
+ * @author Justin,Jonas,Jan
+ * @version 1.0.0
+ *
+ */
 public class Random implements GefangenenStrategie{
 
-	@Override
+	/**
+	 * Gibt die nächste Entscheidung des (this) Spieler zurück <br>
+	 * Format: true = Kooperation, false = Verrat
+	 * 
+	 * @return boolean > Entscheidung
+	 */
 	public boolean getNextDecision() {
-		double rmd = Math.random()*2;
-		if(rmd>1) {
+		if((Math.random()*2)>1) {
 			return false;
 		}
 		return true;
 	}
 
-	@Override
+	/**
+	 * Setzt die vorherige Entscheidung des Gegners mit dem angegebenen Parameter
+	 * @param decision > boolean
+	 */
 	public void setOpponentsLastDecision(boolean decision) {
 	}
 
