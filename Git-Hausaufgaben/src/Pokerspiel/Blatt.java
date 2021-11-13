@@ -1,21 +1,33 @@
 package Pokerspiel;
 
 import java.util.Arrays;
-import java.util.Optional;
-import java.util.stream.Stream;
-
+/**
+ * Klasse Blatt zum Verwalten eines Blatt bestehend aus drei Karten
+ * 
+ * @author Justin, Jonas, Jan
+ * @version 1.1.0
+ */
 public class Blatt {
 
 	private int[] blatt = new int[3];
-
+	/**
+	 * Konstruktor: Erstellt ein neues (this) Objekt mit den angebenen Parameter
+	 * 
+	 * @param cards > int[]
+	 * @throws NumberFormatException > Array muss 3 Werte enthalten
+	 */
 	public Blatt(int[] cards) {
-		// datenkapeslung
-		if (cards.length > blatt.length) {
-			throw new NumberFormatException("Der Array darf max. 3 Werte enthalten");
+		if (cards.length != blatt.length) {
+			throw new NumberFormatException("Der Array muss 3 Werte enthalten");
 		}
 		this.blatt = cards.clone();
 	}
-
+	/**
+	 * Gibt das Blatt des (this) Objekt im String-Format zurueck <br>
+	 * Format: 1, 2, 3
+	 * 
+	 * @return String > Blatt als String-Format
+	 */
 	public String toString() {
 		
 		String result = "";
@@ -28,21 +40,35 @@ public class Blatt {
 		}
 		return result;
 	}
-
+	/**
+	 * Gibt das Integer-Feld vom (this) Objekt zurueck
+	 * 
+	 * @return int[] > Blatt
+	 */
 	public int[] getValues() {
 		return this.blatt;
 	}
+	
+	/**
+	 * Gibt die Summe der Werte vom Blatt des (this) Objekt zurueck
+	 * 
+	 * @return int > Summe
+	 */
+	public int getDeckValue() {
 
-	public Integer getDeckValue() {
-
-		Integer deckValue = 0;
+		int deckValue = 0;
 		for (int i = 0; i < this.blatt.length; i++) {
 			deckValue += this.blatt[i];
 		}
 		return deckValue;
 	}
-
-	public Integer[] getValance() {
+	/**
+	 * Gibt das Paar und den Wert des Paares vom (this) Object zurueck <br>
+	 * Format: [Paar,PaarSumme]
+	 * 
+	 * @return int[] > Paar
+	 */
+	public int[] getValance() {
 
 		int deckValence = 0;
 		int valanceValue = 0;
@@ -77,13 +103,18 @@ public class Blatt {
 			}
 		}
 		
-		Integer[] result = {deckValence, valanceValue};
+		int[] result = {deckValence, valanceValue};
 		return result;
 	}
+	/**
+	 * Gibt den Wert der alleinstehende Karte vom (this) Objekt zurueck mit dem angebenen Parameter
+	 * 
+	 * @param int > ValanceValue (Summe des Paares)
+	 * @return int > alleinstehende Karte
+	 */
+	public int getValueOutsidePair(int ValanceValue) {
 
-	public Integer getValueOutsidePair(Integer ValanceValue) {
-
-		Integer sumArray = 0;
+		int sumArray = 0;
 		
 		for (int i = 0; i < this.blatt.length; i++) {
 			sumArray += this.blatt[i];

@@ -7,13 +7,13 @@ public class BlattVergleich implements Comparator<Blatt> {
 
 	public int compare(Blatt blatt1, Blatt blatt2) {
 
-		Integer[] b1Valence = blatt1.getValance();
-		Integer b1HighestValue = blatt1.getValueOutsidePair(b1Valence[1]);
-		Integer b1ValueTotal = blatt1.getDeckValue();
+		int[] b1Valence = blatt1.getValance();
+		int b1HighestValue = blatt1.getValueOutsidePair(b1Valence[1]);
+		int b1ValueTotal = blatt1.getDeckValue();
 		
-		Integer[] b2Valence = blatt2.getValance();
-		Integer b2HighestValue = blatt2.getValueOutsidePair(b2Valence[1]);
-		Integer b2ValueTotal = blatt2.getDeckValue();
+		int[] b2Valence = blatt2.getValance();
+		int b2HighestValue = blatt2.getValueOutsidePair(b2Valence[1]);
+		int b2ValueTotal = blatt2.getDeckValue();
 		
 		// Valance check
 		if(b1Valence[0] != b2Valence[0]) {
