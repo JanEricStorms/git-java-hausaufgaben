@@ -25,7 +25,12 @@ public class Main {
 		werteAus(einfachNiedrig, einfachHoch, bv);
 
 	}
-
+	/**
+	 * Gibt das Ergebnis des Vergleiches von zwei Blaettern zurueck<br>
+	 * Format: Blatt 1, Blatt 2, Comparator<Blatt>
+	 * 
+	 * @return String > Ergebnis des Vergleiches
+	 */
 	private static void werteAus(Blatt b1, Blatt b2, Comparator<Blatt> cb) {
 		int vergleich = cb.compare(b1, b2);
 		String ergebnis = "";
