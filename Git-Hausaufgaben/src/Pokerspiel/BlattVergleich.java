@@ -18,11 +18,11 @@ public class BlattVergleich implements Comparator<Blatt> {
 	 * @param blatt2 > Objekt vom Typ Blatt
 	 * @return int > Vergleich-Ergebniss
 	 * <br>
-	 *		>1 = Blatt1 groeﬂer
+	 *		>1 = Blatt1 groesser
 	 * <br>
-	 *		0  = gleich groﬂ
+	 *		0  = gleich gross
 	 * <br>
-	 *		<1 = Blatt2 groeﬂer
+	 *		<1 = Blatt2 groesser
 	 *
 	 */
 	public int compare(Blatt blatt1, Blatt blatt2) {
