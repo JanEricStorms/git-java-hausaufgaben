@@ -11,11 +11,12 @@ public class SchiebAlg1 implements Loesungsalgorithmus{
 			int[] arr = new int[] {0,0};
 		while(!Arrays.toString(puzzle.getPosition(1)).equals(Arrays.toString(arr))) {
 			int target;
-			try {
+			
 				target = ThreadLocalRandom.current().nextInt(1, 15+1);
+				if(puzzle.istVerschiebbar(target) == true) {
 				puzzle.schiebe(target);
-			}catch(WrongMoveException e) {
-			}
+				}
+				
 		}
 		}catch (NullPointerException e) {
 		}

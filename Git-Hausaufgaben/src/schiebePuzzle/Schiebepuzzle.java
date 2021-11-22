@@ -86,10 +86,10 @@ public class Schiebepuzzle {
 				}
 				this.puzzle[p1][p2] = null;
 			}else {
-				throw new WrongMoveException();
+				throw new WrongMoveException(i);
 			}
 		}else {
-			throw new WrongNumberException();
+			throw new WrongNumberException(i);
 		}
 	}
 	
@@ -161,7 +161,7 @@ public class Schiebepuzzle {
 		}
 		erg = new int[] {p1,p2};
 		}else {
-			throw new WrongNumberException();
+			throw new WrongNumberException(i);
 		}
 		
 		return erg;
