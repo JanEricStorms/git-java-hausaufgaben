@@ -1,5 +1,12 @@
 package schiebePuzzle;
 
+/**
+ * Dies ist die Test-Klasse um das Schiebepuzzel zu Testen
+ * 
+ * @author Justin, Jan
+ * @version 1.0.0
+ */
+
 public class TestClass {
 	public static void main(String[] args) {
 		Schiebepuzzle sp = new Schiebepuzzle();
