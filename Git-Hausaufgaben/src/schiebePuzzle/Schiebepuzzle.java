@@ -17,7 +17,7 @@ public class Schiebepuzzle {
 	 * Konstruktor: Erstellt ein neues (this) Objekt
 	 * Das Erstellte Objekt ist ein neues Feld mit der Groesse 4x4
 	 * Auf diesem Feld liegen die Puzzelteile von 1-15.
-	 * Das letzte Feld (unten rechts (im Puzzel an stelle [4][4]))
+	 * Das letzte Feld (unten rechts (im Puzzel an stelle [3][3]))
 	 * 
 	 */
 	public Schiebepuzzle() {
@@ -44,10 +44,10 @@ public class Schiebepuzzle {
 	}
 	/**
 	 * Gibt das Feld des Puzzels mit den Positionen der einzelnen Teile als String aus <br>
-	 * Format: | x| x| x| x|
-	 *         | x| x| x| x|
-	 *         | x| x| x| x|
-	 *         | x| x| x|  |
+	 * Format: | x| x| x| x| <br>
+	 *         | x| x| x| x| <br>
+	 *         | x| x| x| x| <br>
+	 *         | x| x| x| 0| <br>
 	 *         
 	 *  @return String > Puzzle als String
 	 */
@@ -63,38 +63,38 @@ public class Schiebepuzzle {
 				}
 			}
 			sb.append("|" + " \n");
-			for(int k = 0; k<13;k++) {
-				sb.append("-");
-			}
+
+			sb.append("-".repeat(13));
+
 			sb.append(" \n");
 		}
 		
 		return sb.toString();
 	}
 	/**
-	 * Verschiebt das Feld mit dem Wert i, wenn moeglich auf das freie Feld
+	 * Verschiebt das Feld mit dem angegebenen Parameter i, wenn moeglich auf das freie Feld
 	 * 
-	 * @throws WrongMoveException(i) > Der Zug ist nicht moeglich ."(Das Feld mit dem Wert i kann nicht auf das freie Feld geschoben werden)"
+	 * @throws WrongMoveException(i) > Der Zug ist nicht moeglich .
 	 * @throws WrongNumberException(i) > Der Wert muss zwischen 1 und 15 liegen.
 	 * 
-	 * @param int i > Ist die Wert auf dem Feld das Verschoben werden soll
+	 * @param i > Ist der Int-Wert auf dem Feld das Verschoben werden soll
 	 */
 	public void schiebe(int i) {
-		/**
+		/*
 		 * Prüft ob der Wert des Feldes das Verschoben werden soll zwischen 1 und 15 liegt
 		 * @throws WrongNumber Exception > Wert muss zwischen 1 und 15 liegen
-		 * @param int i > Wert des Feldes das Verschoben werden soll
+		 * @param i > Wert des Feldes das Verschoben werden soll
 		 */
 		if(i>=1 && i<=15) {
-			/**
+			/*
 			 * Prueft ob man das Feld i verschieben kann
 			 * @throws WrongMoveException
-			 * @param int i > Wert des Feldes das Verschoben werden soll
+			 * @param i > Wert des Feldes das Verschoben werden soll
 			 */
 			if(istVerschiebbar(i)) {
-				/**
+				/*
 				 * Sucht die Position des Feldes an der sich das Feld mit dem Wert i befindet
-				 * @param int i > Wert des Feldes
+				 * @param i > Wert des Feldes
 				 * Setzt die Koordinaten des Feldes mit dem Wert i auf {@value p1} und {@value p2}
 				 */
 				int p1 = 0;
@@ -111,7 +111,7 @@ public class Schiebepuzzle {
 						
 					}
 				}
-				/**
+				/*
 				 * Prueft ob die Verschiebung vom Feld mit dem Wert i aus in die Himmelsrichtungen moeglich ist,
 				 * und prueft dann ob das Feld frei ist und setzt die Koordinaten des neuen Punktes wenn das Feld frei war.
 				 */
@@ -136,7 +136,7 @@ public class Schiebepuzzle {
 						
 					}
 				}
-				/**
+				/*
 				 * Setzt die das alte Feld auf null, damit es als leeres Feld gilt
 				 */
 				this.puzzle[p1][p2] = null;
@@ -150,13 +150,13 @@ public class Schiebepuzzle {
 	/**
 	 * Testet ob man das Feld mit dem Wert i auf das freie Feld verschieben kann
 	 * 
-	 * @param i > Wert des Feldes das Verschoben werden soll
+	 * @param i > Int-Wert des Feldes das Verschoben werden soll
 	 * @return boolean > {@value true} wenn das Verschieben moeglich ist, {@value false} wenn der Zug nicht moeglich ist
 	 */
 	public boolean istVerschiebbar(int i) {
-		/**
+		/*
 		 * Sucht die Position des Feldes an der sich das Feld mit dem Wert i befindet
-		 * @param int i > Wert des Feldes
+		 * @param i > Wert des Feldes
 		 * Setzt die Koordinaten des Feldes mit dem Wert i auf {@value p1} und {@value p2}
 		 */
 		int p1 = 0;
@@ -173,7 +173,7 @@ public class Schiebepuzzle {
 				
 			}
 		}
-		/**
+		/*
 		 * Prueft ob die Verschiebung vom Feld mit dem Wert i aus in die Himmelsrichtungen moeglich ist,
 		 * und returnt true wenn das moeglich ist, ansonsten wird false zurueck gegeben.
 		 */
@@ -201,23 +201,23 @@ public class Schiebepuzzle {
 	}
 	/**
 	 * Nimmt 100 moegliche zuege vor um das Spielfeld zuvermischen
-	 * Dabei wird der Wert des Feldes zufaellig zwischen 1 udn 15 gewaehlt und dann versucht das Feld zu verschieben. 
+	 * Dabei wird der Wert des Feldes zufaellig zwischen 1 und 15 gewaehlt und dann versucht das Feld zu verschieben. 
 	 */
 	public void mischen() {
 		int target;
 		for(int i = 0; i<100;i++) {
-			try {
 				target = ThreadLocalRandom.current().nextInt(1, 15+1);
-				schiebe(target);
-			}catch(WrongMoveException e) {
-				i--;
-			}
+				if(istVerschiebbar(target)) {
+					schiebe(target);
+				}else {
+					i--;
+				}
 		}
 	}
 	/**
 	 * Sucht die Stelle an der das Feld mit dem Wert i ist und gibt dessen Position zurueck
 	 * 
-	 * @param int i > Wert des Feldes von dem die Position auf dem Feld gesucht wird
+	 * @param i > Int-Wert des Feldes von dem die Position auf dem Feld gesucht wird
 	 * @return int[] > Gibt einen int[] zurueck der die x und y Koordinate bzw die Position im puzzle[][] zurueck
 	 */
 	public int[] getPosition(int i) {

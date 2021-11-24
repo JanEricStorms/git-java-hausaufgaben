@@ -9,16 +9,15 @@ import java.util.concurrent.ThreadLocalRandom;
  * @version 1.0.0
  */
 public class SchiebAlg1 implements Loesungsalgorithmus{
-
+	
 	/**
-	 * Nimmt solange zufaellige Zuege vor bist das Feld mit dem Wert 1 an der Position [0][0] im Schiebepuzzel ist
+	 * Nimmt solange zufaellige Zuege vor bis das Feld mit dem Wert 1 an der Position [0][0] im Schiebepuzzel ist
 	 * 
 	 * @param Schiebepuzzle > Erhaelt das Schiebepuzzel das geloest werden soll
 	 */
 	@Override
 	public void loesen(Schiebepuzzle puzzle) {
-		try {
-			int[] arr = new int[] {0,0};
+		int[] arr = new int[] {0,0};
 		while(!Arrays.toString(puzzle.getPosition(1)).equals(Arrays.toString(arr))) {
 			int target;
 			
@@ -27,8 +26,6 @@ public class SchiebAlg1 implements Loesungsalgorithmus{
 				puzzle.schiebe(target);
 				}
 				
-		}
-		}catch (NullPointerException e) {
 		}
 	}
 
