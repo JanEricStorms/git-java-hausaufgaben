@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 public class Knight extends Chessman{
 
-	// ### attributes
-	private int movesStraight = 2;
-	private int movesLeftRight = 1;
 	// ### parent constructor
 	/**
 	 * Konstruktor: Erstellt ein neues Objekt Knight mit den angegebenen Parameter
@@ -17,34 +14,71 @@ public class Knight extends Chessman{
 	}
 	// ### methods
 	@Override
-	public ArrayList<Position> getMoveList() throws WrongMoveException 
-	{
-		int currentX = super.getPosition().getX();
-		int currentY = super.getPosition().getY();
-		ArrayList<Position> accetableMoves = new ArrayList<>();
+	public ArrayList<Position> getMoveList(){
+		ArrayList<Position> doableMoves = new ArrayList<>();
+		int currenX = super.getPosition().getX();
+		int currenY = super.getPosition().getY();
 		
-		int a = 1;
-		int b = 1;
-		for(int i = 0; i<4; i++) {
-			if(Position.isValid(currentX+this.movesStraight*a, currentY+this.movesLeftRight*b)) {
-				accetableMoves.add(new Position(currentX+this.movesStraight*a, currentY+this.movesLeftRight*b));
-			}
-			if(Position.isValid(currentX+this.movesLeftRight*b, currentY+this.movesStraight*a)) {
-				accetableMoves.add(new Position(currentX+this.movesLeftRight*b, currentY+this.movesStraight*a));
-			}
-			if(i == 1) {
-				a *= -1;
-			}
-			if(i == 2) {
-				a *= -1;
-				b *= -1;
-			}
-			if(i == 3) {
-				a *= 1;
-				b *= -1;
+		for(int i = 0; i < 4;i++) {
+			if(i == 0 && Position.isValid(currenX, currenY+2)) {
+				//Norden
+				if(Position.isValid(currenX-1, currenY+2)) {
+					try {
+					doableMoves.add(new Position(currenX-1, currenY+2));
+					}catch (WrongPositionException e){
+					}
+				}
+				if(Position.isValid(currenX+1, currenY+2)) {
+					try {
+						doableMoves.add(new Position(currenX+1, currenY+2));
+						}catch (WrongPositionException e){
+						}
+				}
+			}else if(i == 1 && Position.isValid(currenX+2, currenY)) {
+				//Osten
+				if(Position.isValid(currenX+2, currenY+1)) {
+					try {
+					doableMoves.add(new Position(currenX+2, currenY+1));
+					}catch (WrongPositionException e){
+					}
+				}
+				if(Position.isValid(currenX+2, currenY-1)) {
+					try {
+						doableMoves.add(new Position(currenX+2, currenY-1));
+						}catch (WrongPositionException e){
+						}
+				}
+			}else if ( i == 2 && Position.isValid(currenX, currenY-2)) {
+				//Sueden
+				if(Position.isValid(currenX+1, currenY-2)) {
+					try {
+					doableMoves.add(new Position(currenX+1, currenY-2));
+					}catch (WrongPositionException e){
+					}
+				}
+				if(Position.isValid(currenX-1, currenY-2)) {
+					try {
+						doableMoves.add(new Position(currenX-1, currenY-2));
+						}catch (WrongPositionException e){
+						}
+				}
+			}else if(i == 3 && Position.isValid(currenX-2, currenY)){
+				//Westen
+				if(Position.isValid(currenX-2, currenY-1)) {
+					try {
+					doableMoves.add(new Position(currenX-2, currenY-1));
+					}catch (WrongPositionException e){
+					}
+				}
+				if(Position.isValid(currenX-2, currenY+1)) {
+					try {
+						doableMoves.add(new Position(currenX-2, currenY+1));
+						}catch (WrongPositionException e){
+						}
+				}
 			}
 		}
-		return accetableMoves;
+		return doableMoves;
 	}
 	
 	/**

@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 public class Rook extends Chessman{
 
-	// ### attributes
-	private int moves = 3;
-	
 	// ### parent constructor
 	/**
 	 * Konstruktor: Erstellt ein neues Objekt Rook mit den angegebenen Parameter
@@ -16,27 +13,70 @@ public class Rook extends Chessman{
 		super(pos);
 	}
 	// ### methods
+//	@Override
+//	public ArrayList<Position> getMoveList() throws WrongPositionException
+//	{
+//		int currentX = super.getPosition().getX();
+//		int currentY = super.getPosition().getY();
+//		ArrayList<Position> accetableMoves = new ArrayList<>();
+//		int changePos = this.moves;
+//		// 4 directions
+//		for(int i = 0; i<2; i++) {
+//			if(i==1){
+//				changePos *= -1;
+//			}
+//			if(Position.isValid(currentX+changePos, currentY)) {
+//				accetableMoves.add(new Position(currentX+changePos, currentY));
+//			}
+//			if(Position.isValid(currentX, currentY+changePos)) {
+//				accetableMoves.add(new Position(currentX, currentY+changePos));
+//			}
+//		}
+//		return accetableMoves;
+//		
+//	}
 	@Override
-	public ArrayList<Position> getMoveList() throws WrongMoveException 
-	{
+	public ArrayList<Position> getMoveList(){
+		ArrayList<Position> doableMoves = new ArrayList<>();
 		int currentX = super.getPosition().getX();
 		int currentY = super.getPosition().getY();
-		ArrayList<Position> accetableMoves = new ArrayList<>();
-		int changePos = this.moves;
-		// 4 directions
-		for(int i = 0; i<2; i++) {
-			if(i==1){
-				changePos *= -1;
-			}
-			if(Position.isValid(currentX+changePos, currentY)) {
-				accetableMoves.add(new Position(currentX+changePos, currentY));
-			}
-			if(Position.isValid(currentX, currentY+changePos)) {
-				accetableMoves.add(new Position(currentX, currentY+changePos));
+		for( int i = 0; i <4; i++) {
+			if(i ==  0) {
+				//Norden
+				for(int j = 1; Position.isValid(currentX, currentY+j);j++) {
+					try {
+						doableMoves.add(new Position(currentX, currentY+j));
+					} catch (WrongPositionException e) {
+					}
+				}
+			}else if(i == 1) {
+				//Osten
+				for(int j = 1; Position.isValid(currentX+j, currentY);j++) {
+					try {
+						doableMoves.add(new Position(currentX+j, currentY));
+					} catch (WrongPositionException e) {
+					}
+				}
+			}else if(i == 2) {
+				//Sueden
+				for(int j = 1; Position.isValid(currentX, currentY-j);j++) {
+					try {
+						doableMoves.add(new Position(currentX, currentY-j));
+					} catch (WrongPositionException e) {
+					}
+				}
+			}else if(i == 3) {
+				//Westen
+				for(int j = 1; Position.isValid(currentX-j, currentY);j++) {
+					try {
+						doableMoves.add(new Position(currentX-j, currentY));
+					} catch (WrongPositionException e) {
+					}
+				}
 			}
 		}
-		return accetableMoves;
 		
+		return doableMoves;
 	}
 	
 	/**

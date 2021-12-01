@@ -1,7 +1,7 @@
 
 package Schachfigur;
 
-public class Position {
+public final class Position {
 
 	
 	// ### attributes
@@ -17,9 +17,9 @@ public class Position {
 	 * @param y > int
 	 * @throws WrongMoveException 
 	 */
-	public Position(int x, int y) throws WrongMoveException {
+	public Position(int x, int y) throws WrongPositionException {
 		if(!isValid(x, y)) {
-			throw new WrongMoveException("Die Koordinanten befinden sich nicht auf dem Feld", x, y);
+			throw new WrongPositionException("Die Koordinanten befinden sich nicht auf dem Feld", x, y);
 		}
 		this.posX = x;
 		this.posY = y;

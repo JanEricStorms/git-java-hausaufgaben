@@ -2,7 +2,7 @@ package Schachfigur;
 
 public class main {
 
-	public static void main(String[] args) throws WrongMoveException {
+	public static void main(String[] args) throws WrongPositionException, WrongMoveException {
 		/*
 		Position p = new Position(3, 5);
 

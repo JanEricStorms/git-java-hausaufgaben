@@ -33,17 +33,20 @@ public abstract class Chessman {
 	 * @param pos > Objekt Typ Position
 	 * @throws WrongMoveException > Feld nicht erreichbar in einem Zug
 	 */
-	public void moveTo(Position pos) {
-		if(!this.currentPos.equals(pos)) {
+	public void moveTo(Position pos) throws WrongMoveException {
+		if(canMoveTo(pos)) {
 			this.currentPos = pos;
+		}else {
+			throw new WrongMoveException("Das Feld ist nicht in einem Zug erreichbar", pos.getX(), pos.getY());
 		}
 	}
 	/**
 	 * Gibt eine Liste aller möglichen Zuege der (this) Figur zurueck
 	 * 
 	 * @return ArrayList<Position> > Eine Liste vom Typ Position
+	 * @throws WrongPositionException 
 	 */
-	public abstract ArrayList<Position> getMoveList() throws WrongMoveException;
+	public abstract ArrayList<Position> getMoveList();
 	/**
 	 * 
 	 * Testet ob die (this) Figur zu dem angegebenen Parameter bewegt werden kann
@@ -52,8 +55,10 @@ public abstract class Chessman {
 	 * @return boolean > Status der Bewegbarkeit: true = bewegbar 
 	 */
 	public boolean canMoveTo(Position pos) {
-		if(Position.isValid(pos.getX(), pos.getY())) {
-			return true;
+		for(int i = 0; i< getMoveList().size();i++) {
+			if(getMoveList().get(i).toString().equals(pos.toString())) {
+				return true;
+			}
 		}
 		return false;
 	}
