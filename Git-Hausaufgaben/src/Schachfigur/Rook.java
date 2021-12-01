@@ -13,28 +13,6 @@ public class Rook extends Chessman{
 		super(pos);
 	}
 	// ### methods
-//	@Override
-//	public ArrayList<Position> getMoveList() throws WrongPositionException
-//	{
-//		int currentX = super.getPosition().getX();
-//		int currentY = super.getPosition().getY();
-//		ArrayList<Position> accetableMoves = new ArrayList<>();
-//		int changePos = this.moves;
-//		// 4 directions
-//		for(int i = 0; i<2; i++) {
-//			if(i==1){
-//				changePos *= -1;
-//			}
-//			if(Position.isValid(currentX+changePos, currentY)) {
-//				accetableMoves.add(new Position(currentX+changePos, currentY));
-//			}
-//			if(Position.isValid(currentX, currentY+changePos)) {
-//				accetableMoves.add(new Position(currentX, currentY+changePos));
-//			}
-//		}
-//		return accetableMoves;
-//		
-//	}
 	@Override
 	public ArrayList<Position> getMoveList(){
 		ArrayList<Position> doableMoves = new ArrayList<>();
@@ -42,7 +20,7 @@ public class Rook extends Chessman{
 		int currentY = super.getPosition().getY();
 		for( int i = 0; i <4; i++) {
 			if(i ==  0) {
-				//Norden
+				//Norden bis zum Feldrand
 				for(int j = 1; Position.isValid(currentX, currentY+j);j++) {
 					try {
 						doableMoves.add(new Position(currentX, currentY+j));
@@ -50,7 +28,7 @@ public class Rook extends Chessman{
 					}
 				}
 			}else if(i == 1) {
-				//Osten
+				//Osten bis zum Feldrand
 				for(int j = 1; Position.isValid(currentX+j, currentY);j++) {
 					try {
 						doableMoves.add(new Position(currentX+j, currentY));
@@ -58,7 +36,7 @@ public class Rook extends Chessman{
 					}
 				}
 			}else if(i == 2) {
-				//Sueden
+				//Sueden bis zum Feldrand
 				for(int j = 1; Position.isValid(currentX, currentY-j);j++) {
 					try {
 						doableMoves.add(new Position(currentX, currentY-j));
@@ -66,7 +44,7 @@ public class Rook extends Chessman{
 					}
 				}
 			}else if(i == 3) {
-				//Westen
+				//Westen bis zum Feldrand
 				for(int j = 1; Position.isValid(currentX-j, currentY);j++) {
 					try {
 						doableMoves.add(new Position(currentX-j, currentY));

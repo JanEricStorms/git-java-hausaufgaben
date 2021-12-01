@@ -18,17 +18,19 @@ public class Knight extends Chessman{
 		ArrayList<Position> doableMoves = new ArrayList<>();
 		int currenX = super.getPosition().getX();
 		int currenY = super.getPosition().getY();
-		
+		//Prueft die 4 Himmelsrichtungen
 		for(int i = 0; i < 4;i++) {
 			if(i == 0 && Position.isValid(currenX, currenY+2)) {
 				//Norden
 				if(Position.isValid(currenX-1, currenY+2)) {
+					//Links
 					try {
 					doableMoves.add(new Position(currenX-1, currenY+2));
 					}catch (WrongPositionException e){
 					}
 				}
 				if(Position.isValid(currenX+1, currenY+2)) {
+					//Rechts
 					try {
 						doableMoves.add(new Position(currenX+1, currenY+2));
 						}catch (WrongPositionException e){
@@ -37,12 +39,14 @@ public class Knight extends Chessman{
 			}else if(i == 1 && Position.isValid(currenX+2, currenY)) {
 				//Osten
 				if(Position.isValid(currenX+2, currenY+1)) {
+					//Oben
 					try {
 					doableMoves.add(new Position(currenX+2, currenY+1));
 					}catch (WrongPositionException e){
 					}
 				}
 				if(Position.isValid(currenX+2, currenY-1)) {
+					//Unten
 					try {
 						doableMoves.add(new Position(currenX+2, currenY-1));
 						}catch (WrongPositionException e){
@@ -51,12 +55,14 @@ public class Knight extends Chessman{
 			}else if ( i == 2 && Position.isValid(currenX, currenY-2)) {
 				//Sueden
 				if(Position.isValid(currenX+1, currenY-2)) {
+					//Rechts
 					try {
 					doableMoves.add(new Position(currenX+1, currenY-2));
 					}catch (WrongPositionException e){
 					}
 				}
 				if(Position.isValid(currenX-1, currenY-2)) {
+					//Links
 					try {
 						doableMoves.add(new Position(currenX-1, currenY-2));
 						}catch (WrongPositionException e){
@@ -65,12 +71,14 @@ public class Knight extends Chessman{
 			}else if(i == 3 && Position.isValid(currenX-2, currenY)){
 				//Westen
 				if(Position.isValid(currenX-2, currenY-1)) {
+					//Unten
 					try {
 					doableMoves.add(new Position(currenX-2, currenY-1));
 					}catch (WrongPositionException e){
 					}
 				}
 				if(Position.isValid(currenX-2, currenY+1)) {
+					//Oben
 					try {
 						doableMoves.add(new Position(currenX-2, currenY+1));
 						}catch (WrongPositionException e){

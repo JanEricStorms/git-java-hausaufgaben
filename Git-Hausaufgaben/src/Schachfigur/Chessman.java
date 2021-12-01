@@ -41,10 +41,10 @@ public abstract class Chessman {
 		}
 	}
 	/**
-	 * Gibt eine Liste aller möglichen Zuege der (this) Figur zurueck
+	 * Gibt eine Liste aller moeglichen Zuege der (this) Figur zurueck
 	 * 
 	 * @return ArrayList<Position> > Eine Liste vom Typ Position
-	 * @throws WrongPositionException 
+	 * 
 	 */
 	public abstract ArrayList<Position> getMoveList();
 	/**
