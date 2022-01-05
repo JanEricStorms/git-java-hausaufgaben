@@ -26,11 +26,13 @@ public class Huffman {
     public static String decode(File f){
         try {
             Scanner check = new Scanner(f);
-            for(int i = 0;check.hasNextLine();i++){
+            int line =0;
+            for(int i = 1;check.hasNextLine();i++){
                 check.nextLine();
-                if(i >= 28){
-                    throw new IllegalArgumentException("Die Datei entspricht nicht dem Vorrausgesetztem Format von 28 Zeilen laenge. " + i);
-                }
+                line = i;
+            }
+            if(line != 28){
+                throw new IllegalArgumentException("Die Datei entspricht nicht dem Vorrausgesetztem Format von 28 Zeilen laenge. " + line);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
