@@ -27,9 +27,9 @@ public class Huffman {
         try {
             Scanner check = new Scanner(f);
             int line =0;
-            for(int i = 1;check.hasNextLine();i++){
-                check.nextLine();
-                line = i;
+            while(check.hasNextLine()) {
+            	check.nextLine();
+            	line++;
             }
             if(line != 28){
                 throw new IllegalArgumentException("Die Datei entspricht nicht dem Vorrausgesetztem Format von 28 Zeilen laenge. " + line);
