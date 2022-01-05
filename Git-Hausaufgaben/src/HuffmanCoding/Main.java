@@ -10,7 +10,7 @@ import java.io.File;
 public class Main {
 
     public static void main(String[] args) {
-        File f = new File("Git-Hausaufgaben/src/HuffmanCoding/message.txt");
+        File f = new File("src/HuffmanCoding/message.txt");
         String ergebnis = Huffman.decode(f);
         System.out.println("Der Entschluesselte Text ist: " + ergebnis);
     }
