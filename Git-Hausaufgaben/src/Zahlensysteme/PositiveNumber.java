@@ -14,7 +14,8 @@ public class PositiveNumber {
 
     /**
      * Function converts decimal String to int <br>
-     * @param s > Input String witch contains the decimal number
+     * @param s > Input String which contains the decimal number
+     * @throws NumberFormatException > String can not be parsed into integer
      */
     public void setDecimal(String s){
         try {
@@ -26,7 +27,8 @@ public class PositiveNumber {
     }
     /**
      * Function converts the hexadecimal number to decimal number (int) <br>
-     * @param s > Input String witch contains the hexadecimal number
+     * @param s > Input String which contains the hexadecimal number
+     * @throws NumberFormatException > Char out of range (Range: [0-9][A-F][a-f]
      */
     public void setHexadecimal(String s){
         StringBuilder hd = new StringBuilder(s);
@@ -50,7 +52,8 @@ public class PositiveNumber {
 
     /**
      * Function converts the binary number to decimal number <br>
-     * @param s > Input String witch contains the binary number
+     * @param s > Input String which contains the binary number
+     * @throws NumberFormatException > Number out of Range (Range: [0-1]
      */
     public void setBinary(String s){
         int erg = 0;
@@ -144,9 +147,9 @@ public class PositiveNumber {
     /**
      * Function checks if the converted value is between 0 and Integer.MAX_VALUE <br>
      * If value is ok --> value is saved in attribute <br>
-     * else --> Exception thrown <br>
      *
      * @param a > Value provided by conversion functions [setBinary, setDecimal, setHexadecimal]
+     * @throws ArithmeticException > Out of Integer.MAX_VALUE range
      */
     private void valueInBounds(int a){
         if(a>=0 && a<=Integer.MAX_VALUE){
