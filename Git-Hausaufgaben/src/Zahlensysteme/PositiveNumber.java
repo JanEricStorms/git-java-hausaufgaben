@@ -1,16 +1,33 @@
 package Zahlensysteme;
-
+/**
+ * Class PositiveNumber to convert Binary, Decimal and Hexadecimal numbers among themselves <br>
+ * Klasse PositiveNumber um Binaer, Dezimal und Hexadezimal Zahlen untereinander zu konvertieren <br>
+ *
+ * @author Justin, Jan
+ * @version 1.0.0
+ *
+ */
 public class PositiveNumber {
 
     private int value;
 
 
-
+    /**
+     * Function converts decimal String to int <br>
+     * @param s > Input String witch contains the decimal number
+     */
     public void setDecimal(String s){
-        int a = Integer.parseInt(s);
-        valueInBounds(a);
+        try {
+            int a = Integer.parseInt(s);
+            valueInBounds(a);
+        }catch (NumberFormatException e){
+            throw new NumberFormatException("There are  only numbers allowed. Here: " + e.getMessage());
+        }
     }
-
+    /**
+     * Function converts the hexadecimal number to decimal number (int) <br>
+     * @param s > Input String witch contains the hexadecimal number
+     */
     public void setHexadecimal(String s){
         StringBuilder hd = new StringBuilder(s);
         int erg = 0;
@@ -23,27 +40,52 @@ public class PositiveNumber {
                  erg = erg + (ascii-55)*(int)Math.pow(16,i);
              }else if(ascii>=97 && ascii<=102){
                  erg = erg + (ascii-87)*(int)Math.pow(16,i);
+             }else{
+                 throw new NumberFormatException("Provided value :" + "= " + hd.charAt(hd.length()-1) + " is not allowed. Only Values containing numbers from 0 to 9 and letters from A to F and a to f.");
              }
             hd.deleteCharAt(hd.length()-1);
         }
         valueInBounds(erg);
     }
 
+    /**
+     * Function converts the binary number to decimal number <br>
+     * @param s > Input String witch contains the binary number
+     */
     public void setBinary(String s){
         int erg = 0;
         StringBuilder bin = new StringBuilder(s);
         int length = bin.length();
         for(int i = 0;i<length;i++){
-            erg = erg + Integer.parseInt(""+bin.charAt(bin.length()-1))*(int)Math.pow(2,i);
-            bin.deleteCharAt(bin.length()-1);
+            try {
+                int binary = Integer.parseInt("" + bin.charAt(bin.length() - 1));
+                if(binary == 0 || binary == 1) {
+                    erg = erg + binary * (int) Math.pow(2, i);
+                    bin.deleteCharAt(bin.length() - 1);
+                }else{
+                    throw new NumberFormatException("There are only 0 and 1 as values allowed. Here: " + binary);
+                }
+            }catch (NumberFormatException e){
+                throw new NumberFormatException("There are only 0 and 1 as values allowed. Here: " + bin.charAt(bin.length() - 1));
+            }
         }
         valueInBounds(erg);
     }
 
+    /**
+     * Function returns the currently saved attribute as decimal String <br>
+     * @return > currently saved attribute as decimal
+     */
     public String getDecimal(){
         return ""+value;
     }
 
+    /**
+     * Function returns the currently saved attribute as hexadecimal String <br>
+     * Function converts saved decimal attribute to hexadecimal before return <br>
+     *
+     * @return > currently saved attribute as hexadecimal
+     */
     public String getHexadecimal(){
         StringBuilder erg = new StringBuilder();
         int rest;
@@ -80,6 +122,12 @@ public class PositiveNumber {
         return erg.toString();
     }
 
+    /**
+     * Function returns the currently saved attribute as binary String <br>
+     * Function converts saved decimal attribute to binary before return <br>
+     *
+     * @return > currently saved attribute as binary
+     */
     public String getBinary(){
         StringBuilder erg = new StringBuilder();
         int rest;
@@ -93,11 +141,18 @@ public class PositiveNumber {
         return erg.toString();
     }
 
+    /**
+     * Function checks if the converted value is between 0 and Integer.MAX_VALUE <br>
+     * If value is ok --> value is saved in attribute <br>
+     * else --> Exception thrown <br>
+     *
+     * @param a > Value provided by conversion functions [setBinary, setDecimal, setHexadecimal]
+     */
     private void valueInBounds(int a){
         if(a>=0 && a<=Integer.MAX_VALUE){
             this.value = a;
         }else{
-            throw new ArithmeticException("There are only values between 0 and " + Integer.MAX_VALUE +" allowed. Here value = " + a);
+            throw new ArithmeticException("There are only values between 0 and " + Integer.MAX_VALUE +" allowed. Here value = " + a + ". Value might be corrupted");
         }
     }
 

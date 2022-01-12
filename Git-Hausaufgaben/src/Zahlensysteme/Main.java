@@ -1,5 +1,12 @@
 package Zahlensysteme;
-
+/**
+ * Test Class for PositiveNumber
+ * Test Klasse fuer PositiveNumber
+ *
+ * @author Justin, Jan
+ * @version 1.0.0
+ *
+ */
 public class Main {
 
     public static void main(String[] args) {
