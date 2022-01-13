@@ -1,0 +1,18 @@
+Aufgabe 2
+
+a)
+Ich erwarte keine Vernünftige ausgabe, da nicht Festgelegt ist was ausgegeben wird.
+In etwa: packagename.a@irgendwas;
+
+b) Die Methode die eine Sinnvolle Bildschirm ausgabe bewirkt heißt toString
+
+public String toString(){
+return this.zaehler + "/" + this.nenner;
+}
+
+c) Weil die veränderung des Bruches in dem Bruch objekt gespeichert wird.
+
+d)
+public void multipliziere(int x){
+    this.zaehler = this.zaehler * x;
+}

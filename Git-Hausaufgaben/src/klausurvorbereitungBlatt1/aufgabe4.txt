@@ -1,0 +1,23 @@
+Aufgabe 4
+
+public static boolean pruefeMatrix(int [] [] matrix){
+    double erstesum = 0;
+    for(int j = 0;j<matrix[i].length();j++){
+                erstesum = erstesum + matrix[0][j];
+            }
+    double sum = 0;
+    double sum2 = 0;
+    for(int i = 0;i<matrix.length();i++){
+        for(int j = 0;j<matrix[i].length();j++){
+            sum = sum + matrix[i][j];
+            sum2 = sum2 + matrix[j][i];
+        }
+        if(sum != erstesum || sum2 != erstesum){
+            return false;
+        }
+        sum = 0;
+        sum2 = 0;
+    }
+    return true;
+
+}

@@ -1,0 +1,12 @@
+Aufgabe 1
+
+Ausgabe:
+
+"Ich bin ein Vogel!
+Star zwitschert!
+Singvogel zwitschert!
+Vogel zwitschert!
+Singvogel singt ein Lied.
+Singvogel singt nicht mehr!
+Star singt ein Lied.
+Star zwitschert nicht mehr!"

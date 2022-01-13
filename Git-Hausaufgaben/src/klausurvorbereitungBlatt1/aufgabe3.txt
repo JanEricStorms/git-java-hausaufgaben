@@ -1,0 +1,16 @@
+Aufgabe 3
+
+Ausgaben:
+
+1) "B:plusD"
+
+2) "A:magicD"
+   "B:magicI"
+
+3) "B:magicD"
+   "A:plusD"
+
+4) "A:magicD"
+   "B:magicI"
+
+5) "A:plusI"
